@@ -171,6 +171,7 @@
         /* add artwork */
         // TODO: doesnt work 
         document.getElementById('add-art-button').addEventListener("click", addArt);
+        artPieces = document.querySelectorAll('.art-panel');
 
         function addArt() {
             if (newArtworks.length === 0) {
@@ -201,8 +202,6 @@
             artPanel.addEventListener("click", function() {
                 viewedArt(artPanel);
             });
-
-            const artPieces = document.querySelectorAll('.art-panel');
         }
 
     </script>
