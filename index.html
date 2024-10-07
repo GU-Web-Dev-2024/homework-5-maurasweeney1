@@ -169,6 +169,7 @@
         }
 
         /* add artwork */
+        // TODO: doesnt work 
         document.getElementById('add-art-button').addEventListener("click", addArt);
 
         function addArt() {
@@ -195,7 +196,7 @@
             artPanel.appendChild(img);
             artPanel.appendChild(description);
 
-            document.getElementsByClassName('art-grid').appendChild(artPanel);
+            ddocument.querySelector('.art-grid').appendChild(artPanel);
 
             artPanel.addEventListener("click", function() {
                 viewedArt(artPieces[i]);
