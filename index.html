@@ -127,6 +127,7 @@
 
     <!-- Placeholder for JavaScript Code -->
     <script>
+        let viewedCount = 0;
         // List of additional artworks to add dynamically
         const newArtworks = [
             { title: 'The Scream', artist: 'Edvard Munch', img: 'https://via.placeholder.com/200' },
@@ -140,6 +141,19 @@
             { title: 'Water Lilies', artist: 'Claude Monet', img: 'https://via.placeholder.com/200' },
             { title: 'Starry Night Over the Rhône', artist: 'Vincent van Gogh', img: 'https://via.placeholder.com/200' }
         ];
+        const artPieces = document.querySelectorAll('.art-panel');
+
+        for (let i = 0; i < artPieces.length; i++) {
+            artPieces[i].addEventListener("click", function() {
+                viewedArt(artPieces[i]);
+            });
+        }
+
+        function viewedArt(artPanel) {
+            artPanel.style.setProperty('background-color', 'blue');
+            viewedCount++;
+            document.getElementById('counter').textContent = viewedCount;
+        }
         // Add your JavaScript code here.
         // Later, move this to an external JavaScript file for better organization.
     </script>
