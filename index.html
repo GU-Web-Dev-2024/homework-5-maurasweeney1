@@ -146,13 +146,15 @@
 
         /* art panel click event */
         for (let i = 0; i < artPieces.length; i++) {
-            artPieces[i].addEventListener("click", viewedArt(artPieces[i]));
+            artPieces[i].addEventListener("click", function() {
+                viewedArt(artPieces[i]);
+            });
         }
 
         function viewedArt(artPanel) {
             artPanel.style.setProperty('background-color', 'rgb(150, 125, 150)');
             viewedCount++;
-            document.getElementById('counter').textContent = viewedCount;
+            document.getElementById('counter').textContent = `Artworks Viewed: ${viewedCount}`;
         }
 
         /* Reset button */
@@ -163,7 +165,7 @@
                 artPieces[i].style.setProperty('background-color', '#eee');
             }
             viewedCount = 0;
-            document.getElementById('counter').textContent = viewedCount;
+            document.getElementById('counter').textContent = `Artworks Viewed: ${viewedCount}`;
         }
 
         /* add artwork */
@@ -178,7 +180,7 @@
             const randomIndex = Math.floor(Math.random() * newArtworks.length);
             const selectedArtwork = newArtworks[randomIndex]; 
 
-            artworks.splice(randomIndex, 1);
+            newArtworks.splice(randomIndex, 1);
 
             const artPanel = document.createElement('div');
             artPanel.className = 'art-panel'; 
@@ -193,7 +195,11 @@
             artPanel.appendChild(img);
             artPanel.appendChild(description);
 
-            document.getElementById('art-grid').appendChild(artPanel);
+            document.getElementsByClassName('art-grid').appendChild(artPanel);
+
+            artPanel.addEventListener("click", function() {
+                viewedArt(artPieces[i]);
+            });
         }
 
     </script>
