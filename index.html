@@ -141,21 +141,28 @@
             { title: 'Water Lilies', artist: 'Claude Monet', img: 'https://via.placeholder.com/200' },
             { title: 'Starry Night Over the Rhône', artist: 'Vincent van Gogh', img: 'https://via.placeholder.com/200' }
         ];
+
+        /* art panel click event */
         const artPieces = document.querySelectorAll('.art-panel');
 
         for (let i = 0; i < artPieces.length; i++) {
-            artPieces[i].addEventListener("click", function() {
-                viewedArt(artPieces[i]);
-            });
+            artPieces[i].addEventListener("click", viewedArt(artPieces[i]));
         }
 
         function viewedArt(artPanel) {
-            artPanel.style.setProperty('background-color', 'blue');
+            artPanel.style.setProperty('background-color', 'rgb(150, 125, 150)');
             viewedCount++;
             document.getElementById('counter').textContent = viewedCount;
         }
-        // Add your JavaScript code here.
-        // Later, move this to an external JavaScript file for better organization.
+
+        /* Reset button */
+        document.getElementById('reset-button').addEventListener("click", resetScreen)
+
+        function resetScreen() {
+            artPanel.style.setProperty('background-color', '#eee');
+            viewedCount = 0;
+            document.getElementById('counter').textContent = viewedCount;
+        }
     </script>
 </body>
 
