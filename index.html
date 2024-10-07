@@ -159,7 +159,9 @@
         document.getElementById('reset-button').addEventListener("click", resetScreen)
 
         function resetScreen() {
-            artPanel.style.setProperty('background-color', '#eee');
+            for (let i = 0; i < artPieces.length; i++) {
+                artPieces[i].style.setProperty('background-color', '#eee');
+            }
             viewedCount = 0;
             document.getElementById('counter').textContent = viewedCount;
         }
