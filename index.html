@@ -172,6 +172,9 @@
         // TODO: doesnt work 
         document.getElementById('add-art-button').addEventListener("click", addArt);
         artPieces = document.querySelectorAll('.art-panel');
+        for(let i = 0; i < artPieces.length; i++){
+            console.log(artPieces[i]);
+        }
 
         function addArt() {
             if (newArtworks.length === 0) {
