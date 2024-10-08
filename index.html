@@ -161,7 +161,9 @@
         document.getElementById('reset-button').addEventListener("click", resetScreen);
 
         function resetScreen() {
+            artPieces = document.querySelectorAll('.art-panel');
             for (let i = 0; i < artPieces.length; i++) {
+                console.log(artPieces[i].textContent);
                 artPieces[i].style.setProperty('background-color', '#eee');
             }
             viewedCount = 0;
@@ -202,11 +204,6 @@
             artPanel.addEventListener("click", function() {
                 viewedArt(artPanel);
             });
-
-            artPieces = document.querySelectorAll('.art-panel');
-            for(let i = 0; i < artPieces.length; i++){
-                console.log(artPieces[i]);
-            }
         }
 
     </script>
