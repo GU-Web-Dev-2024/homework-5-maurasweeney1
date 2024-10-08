@@ -90,6 +90,11 @@
         button:hover {
             background-color: #555;
         }
+
+        .viewed {
+            background-color: rgb(150, 125, 150);
+        }
+
     </style>
 </head>
 
@@ -152,9 +157,12 @@
         }
 
         function viewedArt(artPanel) {
-            artPanel.style.setProperty('background-color', 'rgb(150, 125, 150)');
-            viewedCount++;
-            document.getElementById('counter').textContent = `Artworks Viewed: ${viewedCount}`;
+            if (!artPanel.classList.contains('viewed')) {
+                artPanel.classList.add('viewed');
+                // artPanel.style.setProperty('background-color', 'rgb(150, 125, 150)');
+                viewedCount++;
+                document.getElementById('counter').textContent = `Artworks Viewed: ${viewedCount}`;
+            }
         }
 
         /* Reset button */
@@ -163,8 +171,8 @@
         function resetScreen() {
             artPieces = document.querySelectorAll('.art-panel');
             for (let i = 0; i < artPieces.length; i++) {
-                console.log(artPieces[i].textContent);
-                artPieces[i].style.setProperty('background-color', '#eee');
+                // artPieces[i].style.setProperty('background-color', '#eee');
+                artPieces[i].classList.remove('viewed');
             }
             viewedCount = 0;
             document.getElementById('counter').textContent = `Artworks Viewed: ${viewedCount}`;
